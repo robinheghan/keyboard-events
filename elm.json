@@ -2,7 +2,7 @@
     "type": "package",
     "name": "Skinney/keyboard-listener",
     "summary": "Functions for triggering messages when a certain key is pressed",
-    "license": "MIT",
+    "license": "BSD-3-Clause",
     "version": "1.0.0",
     "exposed-modules": [
         "Keyboard.Events"
