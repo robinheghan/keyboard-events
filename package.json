@@ -1,5 +1,5 @@
 {
-  "name": "keyboard-listener",
+  "name": "keyboard-events",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Skinney/keyboard-listener.git"
+    "url": "git+https://github.com/Skinney/keyboard-events.git"
   },
   "author": "Robin Heggelund Hansen",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/Skinney/keyboard-listener/issues"
+    "url": "https://github.com/Skinney/keyboard-events/issues"
   },
-  "homepage": "https://github.com/Skinney/keyboard-listener#readme",
+  "homepage": "https://github.com/Skinney/keyboard-events#readme",
   "devDependencies": {
     "elm": "^0.19.0-bugfix2"
   }
