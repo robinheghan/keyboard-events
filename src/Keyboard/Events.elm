@@ -1,4 +1,24 @@
-module Keyboard.Events exposing (keyDecoder, onKeyDown, onKeyPress, onKeyUp)
+module Keyboard.Events exposing
+    ( onKeyDown, onKeyPress, onKeyUp
+    , keyDecoder
+    )
+
+{-| Functions that send messages based on key events.
+
+The functions in this namespace uses the keyboard event api, which is supported
+in most browsers (including IE11).
+
+
+# Html Events
+
+@docs onKeyDown, onKeyPress, onKeyUp
+
+
+# Decoder
+
+@docs keyDecoder
+
+-}
 
 import Html
 import Html.Events as Events
@@ -327,6 +347,12 @@ keyFromString code =
                 Decode.fail "Unknown key code"
 
 
+{-| This decoder is supposed to be used with html events. It detects which
+key has been pressed and returns it.
+
+    Html.Events.on "keydown" <| Json.map KeyPressed keyDecoder
+
+-}
 keyDecoder : Decoder Key
 keyDecoder =
     Decode.field "key" Decode.string
@@ -349,16 +375,29 @@ messageSelector decisionMap =
         |> Decode.andThen helper
 
 
-onKeyPress : List ( Key, msg ) -> Html.Attribute msg
-onKeyPress decisionMap =
-    Events.on "keypress" <| messageSelector decisionMap
-
-
+{-| Takes a list of key-message pairs and triggers a message if the
+corresponding key is pressed.
+-}
 onKeyDown : List ( Key, msg ) -> Html.Attribute msg
 onKeyDown decisionMap =
     Events.on "keydown" <| messageSelector decisionMap
 
 
+{-| Takes a list of key-message pairs and triggers a message if the
+corresponding key is pressed. This differs from `onKeyDown` in that it
+will only trigger a message if the associated key produces a character.
+
+If you want to trigger actions when a control key is pressed (like the Escape key), use `onKeyDown` instead.
+
+-}
+onKeyPress : List ( Key, msg ) -> Html.Attribute msg
+onKeyPress decisionMap =
+    Events.on "keypress" <| messageSelector decisionMap
+
+
+{-| Takes a list of key-message pairs and triggers a message if the
+corresponding key is released.
+-}
 onKeyUp : List ( Key, msg ) -> Html.Attribute msg
 onKeyUp decisionMap =
     Events.on "keyup" <| messageSelector decisionMap
