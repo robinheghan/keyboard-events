@@ -7,10 +7,15 @@ import Html exposing (Html, input)
 import Keyboard exposing (Key(..))
 import Keyboard.Events as Keyboard
 
+
+type Msg =
+    CloseAutoComplete
+
+
 autocomplete : Html Msg
 autocomplete =
     input
-        [ Keyboard.onKeyDown [(Escape, CloseAutoComplete) ]]
+        [ Keyboard.on Keyboard.Keydown [(Escape, CloseAutoComplete) ]]
         []
 ```
 
