@@ -1,4 +1,4 @@
-module Keyboard.Events exposing (Event(..), on, custom)
+module Keyboard.Events exposing (Event(..), on, custom, customPerKey)
 
 {-| Send message when a given key is pressed while a certain Html element has focus.
 
