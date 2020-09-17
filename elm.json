@@ -1,9 +1,9 @@
 {
     "type": "package",
-    "name": "Skinney/keyboard-events",
+    "name": "robinheghan/keyboard-events",
     "summary": "Functions for triggering messages when a certain key is pressed",
     "license": "BSD-3-Clause",
-    "version": "2.0.1",
+    "version": "1.0.0",
     "exposed-modules": [
         "Keyboard.Events"
     ],
